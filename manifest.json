@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "AutoSkipper - Amapiano & Deep House",
+    "version": "1.0",
+    "description": "Automatically skip build-ups and progressions on YouTube Music for Amapiano or Deep House jams.",
+    "host_permissions": [
+        "https://music.youtube.com/*",
+        "https://www.youtube.com/*"
+    ],
+    "permissions": [
+        "storage",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "background.ts"
+    },
+    "action": {
+        "default_popup": "popup.html"        
+    },
+    "content_scripts": [
+        {
+        "matches": [
+            "https://music.youtube.com/*",
+            "https://www.youtube.com/*"
+        ],
+        "ts": ["contentScript.ts"],
+        "run_at": "document_idle"
+        }
+    ]
+}
